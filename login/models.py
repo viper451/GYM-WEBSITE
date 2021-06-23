@@ -29,7 +29,7 @@ class Fit(models.Model):
 
 class Registeration(models.Model):
   type=(
-    ('MALE','MALE'),  
+    ('MALE','MALE'),   
 		('FEMALE','FEMALE'), 
 		('OTHERS','OTHERS'), 
 	)
