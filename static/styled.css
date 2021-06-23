@@ -2,7 +2,7 @@
   background: var(--black);
   color: var(--white);
   padding: 6rem calc((100vw - 1100px) / 2);
-  text-align: center;
+  text-align: center; 
 }
 
 .memberships h1 {
