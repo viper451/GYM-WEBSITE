@@ -11,4 +11,4 @@ def auth_or_not(flag):
 			else:
 				return redirect('login')
 		return wrapper_func
-	return auth_or_not_d
+	return auth_or_not_d 
