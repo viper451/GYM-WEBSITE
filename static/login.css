@@ -30,7 +30,7 @@ html {
 .navbhar li a {
 color:white;
 text-decoration: underline;
-display: inline;
+display: inline; 
 padding: 34px 23px;
 
 }
