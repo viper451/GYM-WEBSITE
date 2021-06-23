@@ -1,0 +1,40 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+
+<style>
+	body{
+ 
+  margin: 0px;
+  padding: 0px;
+  background: url('/static/gyma.jpg');
+  background-size: 900px;
+  }
+
+
+</style>
+<body>
+  <div class="head">
+  <h1 class="text-center mb-3">Poll Questions</h1></div>
+  {% if latest_question_list %}
+    {% for question in latest_question_list %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="lead">{{ question.question_text }}</p>
+         
+          <a  href="{% url 'detail' question.id %}">
+            <button type="button" class="btn btn-danger" >VOTE NOW😇 </button></a>
+            <a  href="{% url 'results' question.id %}">
+              <button type="button" class="btn btn-danger" >RESULTS😨 </button></a>
+            
+         
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No polls available</p>
+  {% endif %}
+
+</body>
+
+{% endblock %}

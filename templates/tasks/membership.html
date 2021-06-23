@@ -1,0 +1,148 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  
+body{
+    
+    margin: 0px;
+    padding: 0px;
+    background: url('/static/gyma.jpg');
+    background-size: 900px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color:pink;
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.card11 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color:silver;
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.card22 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color:gold;
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.price {
+  color: black;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+.card11 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card11 button:hover {
+  opacity: 0.7;
+}
+.card22 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card22 button:hover {
+  opacity: 0.7;
+}
+.card1{
+margin-left: -900px;
+margin-top: 150px;
+}
+.card2{
+  margin-top: -560px;
+}
+.card3{
+  margin-top: -560px;
+  margin-left:850px;
+}
+.chom{
+ color:#000;
+}
+.germ{
+  color:whitesmoke;
+}
+</style>
+</head>
+<title>OUR OFFERS</title>
+<body>
+  <div class="germ">
+<h1 style="text-align:center" >OUR MEMBERSHIP </h1>
+  </div>
+<div class="card1">
+<div class="card">
+  <img src="/static/courses-gymnastic.jpg" alt="Denim Jeans" style="width:100%">
+  <h1>NORMAL</h1>
+  <p class="price">&#8377 1999</p>
+  <p class="chom">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+<a href="{% url 'formup'  %}" ><p ><button>BOOK NOW </button></p></a>
+</div>
+</div>
+<div class="card2">
+<div class="card11">
+  <img src="/static/courses-boxing.jpg" alt="Denim Jeans" style="width:100%">
+  <h1>SILVER</h1>
+  <p class="price">&#8377 3999</p>
+  <p class="chom"></p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <a href="{% url 'formup'  %}" ><p ><button>BOOK NOW </button></p></a>
+</div>
+</div>
+<div class="card3">
+<div class="card22">
+  <img src="/static/courses-crossfit.jpg" alt="Denim Jeans" style="width:100%">
+  <h1>GOLD</h1>
+  <p class="price">&#8377 5999</p>
+  <p class="chom"></p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <a href="{% url 'formup'  %}" ><p ><button>BOOK NOW </button></p></a>
+</div>
+</div>
+
+</body>
+</html>
+{% endblock %}

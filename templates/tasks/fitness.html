@@ -1,0 +1,91 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+    <style>
+      body{
+        margin: 0px;
+    padding: 0px;
+    background: url('/static/gyma.jpg');
+    background-size: 900px;
+	}
+
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+
+	.item-row{
+		background-color: #906abd;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+  input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+	}
+
+
+    </style>
+</head>
+
+<body>
+  <div class="center-column">
+    <form method="POST" action="">
+        {% csrf_token %}
+       
+        <div class="complete-check-box">
+          
+          GENDER: {{ form.gender }} 
+          <br>
+          <br>
+          AGE: {{form.age}}
+       <h4>  <b> Step 1:Put the yardstick on the ground with a strip of tape across the 15-inch mark.<br>
+             Step 2: With your shoes off, sit on the floor with the yardstick between your legs and the 0-inch end closest to you.<br>
+             Step 3: Keep your legs straight and your feet about 12 inches apart. Sitting up straight, position your heels at the 14-inch mark.<br>
+             Step 4: Place one hand directly on top of the other and slowly reach forward as far as you can without bouncing. Drop your head if it helps, and be sure to exhale as you stretch.<br>
+            Step 5: Note where the ends of your fingers reach on the yardstick. Repeat two more times and record the farthest distance.
+        <br>
+        <br>
+          HOW FAR U WERE ABLE TO STRECT{{form.flexibility}}
+        <br>
+        <br>
+       Step 1: Lie facedown on the floor with your elbows bent and your palms next to your shoulders.<br>
+       Step 2: Keeping your back straight, push up with your arms until your arms are extended.<br>
+      Step 3:  Lower your body until your chin touches the floor.<br>
+      Step 4:  Do as many pushups as you can until you need to stop for rest.<br>
+      <br>
+      <br>
+        HOW FAR U WERE ABLE TO DO PUSHUPS IN A MINUTE {{form.fitness}}
+        <br>
+        <br>
+        HOW FAR U WERE ABLE TO JOG IN MINUTES  {{form.aerobic}}</b></h4>
+        <br>
+        </div>
+        <input class="btn btn-info" type="submit" name="sumbit" value="SUBMIT">
+      </form>
+      </b></h4>
+  </div>
+        </body>  
+</html>
+
+{% endblock %}

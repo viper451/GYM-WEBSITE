@@ -1,0 +1,105 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+</script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<h1 class="mb-5 text-center">{{ question.question_text }}</h1>
+
+<ul class="list-group mb-5">
+	{% for choice in question.choice_set.all %}
+	<li class="list-group-item">
+		{{ choice.choice_text }}  <span class="badge badge-success float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span>
+	</li>
+	{% endfor %}
+</ul>
+
+<div id="myChart"></div>
+
+
+<style>
+	body{
+  color:blue;
+  margin: 0px;
+  padding: 0px;
+  background: lightgreen;
+  background-size: 900px;
+}
+</style>
+<body>
+
+<a  href="{% url 'index1' %}">
+<button type="button" class="btn btn-danger" >BACK TO THE POLL😇 </button></a>
+
+<a class="btn btn-outline-dark" href="{% url 'detail' question.id %}">
+	<button type="button" class="btn btn-danger" >VOTE AGAIN😄</button>
+
+
+
+</a>
+<script>
+
+	var state ={	
+		'items':[],
+		'values':[],
+	}
+
+	var objId = "{{question.id}}"
+
+	var dataURL = `	/resultsdata/${objId}/`
+	$.ajax({
+		method:'GET',
+		url:dataURL,
+		success:function(response){
+			console.log('RESPONSE:', response)
+			for (var i in response){
+
+				var key = Object.keys(response[i])[0]
+				var value = Object.values(response[i])[0]
+
+				state.items.push(key)
+				state.values.push(value)
+			}
+
+			console.log('STATE:', state)
+			buildChart()
+
+		}
+	})
+
+	function buildChart(){
+			var chartData = {
+				"orientation": "v",
+			"type":"bar",
+			"scale-x":{
+				"values":state.items
+			},
+			"series":[
+				{
+					"values":state.values
+				}
+			]
+		}
+
+
+		zingchart.render({
+		  id: "myChart",
+		  data: chartData,
+		});
+	}
+	
+
+
+	
+</script>
+</body>
+
+{% endblock %}
+

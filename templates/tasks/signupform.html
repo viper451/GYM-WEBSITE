@@ -1,0 +1,65 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<style>
+
+	body{
+		margin: 0px;
+    padding: 0px;
+    background: url('/static/gyma.jpg');
+    background-size: 900px;
+	}
+
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+		background-color:silver;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+
+	.item-row{
+		background-color: #906abd;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+  input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+	}
+
+
+</style>
+
+<div class="center-column">
+
+  <h3>FILL THIS FORM</h3>
+  <b>BE READY TO BE THE PART PART OF THE MOST FAMOUS GYM &#x1F60D</b>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+   
+    <div class="complete-check-box">
+      {{form.as_p}}
+    </div>
+    <input class="btn btn-danger" type="submit" name="SUBMIT" value="SUBMIT">
+  </form>
+</div>
+
+{% endblock %}

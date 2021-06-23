@@ -1,0 +1,92 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+<!Doctype HTML>
+<html>
+    <head>
+        <title>Pie Chart</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
+        </script>
+    </head>
+    <style>
+      body{
+        margin: 0px;
+    padding: 0px;
+    background:lightcoral;
+    background-size: 900px;
+	}
+    .myChart{
+        margin-left: 60px;
+    }
+
+
+    </style>
+    <body>
+
+    
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <script>
+            var xValues = ["FLEXIBILITY", "AEROBIC", "FITNESS", "TOTAL_VALUE", "U MISSED A OUT OF"];
+var yValues = [{{flexibility}},{{aerobic}},{{fitness}},{{total_value}},{{left_value}}];
+var barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+
+  data: {
+    labels: xValues,
+    
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues,
+       
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+   
+      text: "YOUR EACH FITNESS LEVEL"
+    }
+  }
+});
+        </script>
+            
+<canvas id="myChart1" style="width:100%;max-width:300px"></canvas>
+<script>
+    var xValues = ["FITNESS", "TOTAL_VALUE"];
+var yValues = [{{total_value}},{{left_value}}];
+var barColors = ["gold", "black"];
+
+new Chart("myChart1", {
+type: "pie",
+
+data: {
+labels: xValues,
+
+datasets: [{
+backgroundColor: barColors,
+data: yValues,
+
+}]
+},
+options: {
+legend: {display: false},
+title: {
+display: true,
+
+text: "ACCURACY"
+}
+}
+});
+</script>
+
+<h3>CONGRATS YOUR FITNESS LEVEL IS {{total_value}}</h3>
+    </body>
+</html> 
+
+
+{% endblock %}
+
+
